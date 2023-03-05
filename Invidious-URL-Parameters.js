@@ -10,6 +10,8 @@
 // @match        *://invidious.namazso.eu/watch?*
 // @match        *://iv.ggtyler.dev/watch?*
 // @grant        none
+// @license      MIT
+// @homepage     https://github.com/MintMain21/Invidious-URL-Parameters-Userscript
 // ==/UserScript==
 /** This Userscript is based on https://greasyfork.org/en/scripts/450983-genius-back-to-the-original-page-layout but rewritten to instead
 redirect Invidious Video URLs with URL parameters to enforce preferences like video quality, visibility of comments, etc, without using browser cookies.
