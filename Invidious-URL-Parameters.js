@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Redirect Invidious Videos with URL Parameters
-// @author       You
+// @author       MintMain21
 // @match        *://inv.odyssey346.dev/watch?*
 // @match        *://invidious.baczek.me/watch?*
 // @match        *://iteroni.com/watch?*
