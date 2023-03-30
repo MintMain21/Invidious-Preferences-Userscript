@@ -32,6 +32,7 @@
 // @match        *://invidious.weblibre.org/watch?*
 // @match        *://invidious.kavin.rocks/watch?*
 // @match        *://yt.oelrichsgarcia.de/watch?*
+// @match        *://invidious.privacydev.net/watch?*
 // @match        *://c7hqkpkpemu6e7emz5b4vyz7idjgdvgaaa3dyimmeojqbgpea3xqjoid.onion/watch?*
 // @match        *://w6ijuptxiku4xpnnaetxvnkc5vqcdu7mgns2u77qefoixi63vbvnpnqd.onion/watch?*
 // @match        *://kbjggqkzv65ivcqj6bumvp337z6264huv5kpkwuv6gu5yjiskvan7fad.onion/watch?*
