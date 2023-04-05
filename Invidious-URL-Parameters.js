@@ -75,7 +75,7 @@ const url = getCurrentURL();
 (function() {
     'use strict';
 
-    if (url.includes("watch?v") && !url.includes("&quality=dash&quality_dash=480&related_videos=false&comments=false&player_style=youtube")) {
+    if (url.includes("v=") && !url.includes("&quality=dash&quality_dash=480&related_videos=false&comments=false&player_style=youtube")) {
         window.location.replace(url + "&quality=dash&quality_dash=480&related_videos=false&comments=false&player_style=youtube");
     }
 })();
