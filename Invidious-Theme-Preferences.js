@@ -3,10 +3,11 @@
 // @namespace    http://greasyfork.org/
 // @version      0.1
 // @description  Enforces preffered Invidious theme
-// @author       Sheer Anger
+// @author       MintMain21
 // @match        *://vid.puffyan.us/*
 // @grant        none
 // @license      MIT
+// @homepage     https://github.com/MintMain21/Invidious-URL-Parameters-Userscript
 // ==/UserScript==
 /** This userscript is based on https://greasyfork.org/en/scripts/458494-old-wikipedia-layout but rewritten to enforce sitewide Invidious preferences such as theme and language using URL parameters without using browser cookies.
 For more information about Invidious URL parameters and the various options, see https://docs.invidious.io/url-parameters/
