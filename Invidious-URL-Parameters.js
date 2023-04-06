@@ -59,7 +59,7 @@ To edit the enforced URL parameters, change videosettings below.
 let videosettings = "&quality=dash&quality_dash=480&related_videos=false&comments=false&player_style=youtube"
 /**
 Anytime you load a video URL on your desired Invidious instance, this script will check the URL for the desired parameters, and apply them if not found.
-To edit the Invidious instances this script applies to, edit the above domains.
+To edit the Invidious instances this script applies to, edit the domains above.
 It is recommended that you use this script in combination with https://github.com/dybdeskarphet/privacy-redirector and https://codeberg.org/mthsk/userscripts/src/branch/master/simple-sponsor-skipper
 
 
