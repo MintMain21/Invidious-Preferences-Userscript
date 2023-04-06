@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Invidious URL Parameters
+// @name         Invidious Video Preferences
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Redirect Invidious Videos with URL Parameters
@@ -51,8 +51,7 @@
 // @license      MIT
 // @homepage     https://github.com/MintMain21/Invidious-URL-Parameters-Userscript
 // ==/UserScript==
-/** This userscript is based on https://greasyfork.org/en/scripts/450983-genius-back-to-the-original-page-layout but rewritten to instead
-redirect Invidious video URLs with URL parameters to enforce preferences like video quality, visibility of comments, etc, without using browser cookies.
+/** This userscript is based on https://greasyfork.org/en/scripts/450983-genius-back-to-the-original-page-layout but rewritten to enforce video playback preferences as video quality, visibility of comments, etc, through URL parameters and without using browser cookies.
 For more information about Invidious URL parameters and the various options, see https://docs.invidious.io/url-parameters/
 To edit the enforced URL parameters, change videosettings below.
 */
