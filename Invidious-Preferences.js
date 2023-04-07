@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Invidious Video Preferences
+// @name         Invidious Preferences
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Redirect Invidious Videos with URL Parameters
