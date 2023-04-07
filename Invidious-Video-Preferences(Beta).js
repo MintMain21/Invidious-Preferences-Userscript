@@ -33,6 +33,7 @@
 // @match        *://invidious.kavin.rocks/watch?*
 // @match        *://yt.oelrichsgarcia.de/watch?*
 // @match        *://invidious.privacydev.net/watch?*
+// @match        *://invidious.vpsburti.com/*
 // @match        *://c7hqkpkpemu6e7emz5b4vyz7idjgdvgaaa3dyimmeojqbgpea3xqjoid.onion/watch?*
 // @match        *://w6ijuptxiku4xpnnaetxvnkc5vqcdu7mgns2u77qefoixi63vbvnpnqd.onion/watch?*
 // @match        *://kbjggqkzv65ivcqj6bumvp337z6264huv5kpkwuv6gu5yjiskvan7fad.onion/watch?*
@@ -53,9 +54,13 @@
 // ==/UserScript==
 /** This userscript is based on https://greasyfork.org/en/scripts/450983-genius-back-to-the-original-page-layout but rewritten to enforce video playback preferences as video quality, visibility of comments, etc, through URL parameters and without using browser cookies.
 For more information about Invidious URL parameters and the various options, see https://docs.invidious.io/url-parameters/
-To edit the enforced URL parameters, change videosettings below.
+To edit the enforced URL parameters, change the setting strings below. Keep options in their appropriate catagories (URL Parameters affecting video playback should only be in videosettings, etc). You can keep a setting option blank if you would rather not append any URL parameters.
+
 */
-let videosettings = "&quality=dash&quality_dash=480&related_videos=false&comments=false&player_style=youtube"
+let appearencesettings = "dark_mode=auto&hl=en-US"
+let searchsettings = "region=JP"
+let videosettings = "related_videos=false&comments=false&player_style=youtube&extend_desc=true"
+let trendingsettings = "type=Music"
 /**
 Anytime you load a video URL on your desired Invidious instance, this script will check the URL for the desired parameters, and apply them if not found.
 To edit the Invidious instances this script applies to, edit the domains above.
@@ -74,7 +79,25 @@ const url = getCurrentURL();
 (function() {
     'use strict';
 
-    if (url.includes("v=") && !url.includes(videosettings)) {
-        window.location.replace(url + videosettings);
+    if (!url.includes("?") && !url.includes(appearencesettings)) {
+        window.location.replace(url + ("?" + appearencesettings));
+
     }
+
+    if (url.includes("?") && !url.includes(appearencesettings)) {
+        window.location.replace(url + ("&" + appearencesettings));
+
+    }
+
+    if (url.includes("q=") && !url.includes(searchsettings)) {
+        window.location.replace(url + ("&" + searchsettings));
+    }
+
+    if (url.includes("feed/trending") && !url.includes(trendingsettings)) {
+        window.location.replace(url + ("?" + trendingsettings));
+    }
+    if (url.includes("v=") && !url.includes(videosettings)) {
+        window.location.replace(url + ("&" + videosettings));
+    }
+
 })();
