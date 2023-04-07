@@ -6,10 +6,10 @@
 // @author       MintMain21
 // @match        *://inv.odyssey346.dev/*
 // @match        *://invidious.baczek.me/*
-// @match        *://iteroni.com/watch?*
+// @match        *://iteroni.com/*
 // @match        *://invidious.namazso.eu/*
 // @match        *://iv.ggtyler.dev/*
-// @match        *://yewtu.be/watch?*
+// @match        *://yewtu.be/*
 // @match        *://vid.puffyan.us/*
 // @match        *://inv.riverside.rocks/*
 // @match        *://watch.thekitty.zone/*
