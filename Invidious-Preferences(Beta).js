@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Invidious Preferences
+// @name         Invidious Preferences (Beta)
 // @namespace    http://greasyfork.org/
 // @version      0.1
 // @description  Enforces preffered Invidious theme
