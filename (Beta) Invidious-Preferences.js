@@ -53,6 +53,7 @@
 // @homepage     https://github.com/MintMain21/Invidious-URL-Parameters-Userscript
 // ==/UserScript==
 /** This userscript is based on https://greasyfork.org/en/scripts/458494-old-wikipedia-layout but rewritten to enforce Invidious preferences accross multiple instances using URL parameters (and without using browser cookies).
+This script is in Beta. Features (specifically the appending of parameters to URLs on the page) may not work as intended. For the stable branch, see https://github.com/MintMain21/Invidious-Preferences-Userscript/blob/main/Invidious-Video-Preferences.js
 For more information about Invidious URL parameters and the various options, see https://docs.invidious.io/url-parameters/
 To edit the enforced URL parameters, change the settings below.
 */
@@ -60,7 +61,7 @@ const settings = 'dark_mode=auto&hl=en-US&related_videos=false&comments=false&pl
 /**
 (Note, the format must be [first URL parameter]&[next URL parameter]&[next URL parameter] etc, but you can use as little or as many URL parameters as you desire, as long as they don't conflict).
 To edit the Invidious instances this script applies to, edit the above domains.
-It is recommended that you use this script in combination with https://github.com/dybdeskarphet/privacy-redirector and https://github.com/dybdeskarphet/privacy-redirector and https://codeberg.org/mthsk/userscripts/src/branch/master/simple-sponsor-skipper
+It is recommended that you use this script in combination with https://github.com/dybdeskarphet/privacy-redirector and https://codeberg.org/mthsk/userscripts/src/branch/master/simple-sponsor-skipper
 */
 
 function test(url){
