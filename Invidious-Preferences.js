@@ -34,6 +34,7 @@
 // @match        *://yt.oelrichsgarcia.de/*
 // @match        *://invidious.privacydev.net/*
 // @match        *://invidious.vpsburti.com/*
+// @match        *://inv.zzls.xyz/*
 // @match        *://c7hqkpkpemu6e7emz5b4vyz7idjgdvgaaa3dyimmeojqbgpea3xqjoid.onion/*
 // @match        *://w6ijuptxiku4xpnnaetxvnkc5vqcdu7mgns2u77qefoixi63vbvnpnqd.onion/*
 // @match        *://kbjggqkzv65ivcqj6bumvp337z6264huv5kpkwuv6gu5yjiskvan7fad.onion/*
@@ -51,23 +52,27 @@
 // @grant        none
 // @license      MIT
 // @homepage     https://github.com/MintMain21/Invidious-URL-Parameters-Userscript
+// @run-at       document-start
 // ==/UserScript==
 /** This userscript is based on https://greasyfork.org/en/scripts/450983-genius-back-to-the-original-page-layout but rewritten to enforce video playback preferences as video quality, visibility of comments, etc, through URL parameters and without using browser cookies.
 For more information about Invidious URL parameters and the various options, see https://docs.invidious.io/url-parameters/
 To edit the enforced URL parameters, change the setting strings below. Keep options in their appropriate catagories (URL Parameters affecting video playback should only be in videosettings, etc). You can keep a setting option blank if you would rather not append any URL parameters.
-
 */
 let appearencesettings = "dark_mode=auto&hl=en-US"
 let searchsettings = "region=JP"
-let videosettings = "related_videos=false&comments=false&player_style=youtube&extend_desc=true"
+let videosettings = "related_videos=false&comments=false&quality=hd720&player_style=youtube&extend_desc=true"
 let trendingsettings = "type=Music"
 /**
 Anytime you load a video URL on your desired Invidious instance, this script will check the URL for the desired parameters, and apply them if not found.
 To edit the Invidious instances this script applies to, edit the domains above.
+You may also edit the Homepage by changing the variable below (options include "search", "popular", and "trending"). */
+let homepage = "search"
+/**
 It is recommended that you use this script in combination with https://github.com/dybdeskarphet/privacy-redirector and https://codeberg.org/mthsk/userscripts/src/branch/master/simple-sponsor-skipper
-
-
  */
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function getCurrentURL () {
   return window.location.href;
@@ -83,9 +88,8 @@ const url = getCurrentURL();
         window.location.replace(url + ("?" + appearencesettings));
 
     }
-
-    if (url.includes("?") && !url.includes(appearencesettings)) {
-        window.location.replace(url + ("&" + appearencesettings));
+            else if(!url.includes(appearencesettings)) {
+                window.location.replace(url + ("&" + appearencesettings));
 
     }
 
@@ -93,6 +97,26 @@ const url = getCurrentURL();
         window.location.replace(url + ("&" + searchsettings));
     }
 
+    if(homepage.includes("search") && url.includes("feed/trending")){
+            window.location.replace (window.location.href.substring(0, window.location.href.indexOf('feed/trending')) + ("search"));
+    }
+    else if(homepage.includes("search") && url.includes("feed/popular")){
+                window.location.replace (window.location.href.substring(0, window.location.href.indexOf('feed/popular')) + ("search"));
+    }
+
+    if(homepage.includes("popular") && url.includes("feed/trending")){
+            window.location.replace (window.location.href.substring(0, window.location.href.indexOf('feed/trending')) + ("feed/popular"));
+    }
+    else if(homepage.includes("popular") && url.includes("search") && !url.includes("q=")){
+                window.location.replace (window.location.href.substring(0, window.location.href.indexOf('search')) + ("feed/popular"));
+    }
+
+    if(homepage.includes("trending") && url.includes("feed/popular")){
+            window.location.replace (window.location.href.substring(0, window.location.href.indexOf('feed/popular')) + ("feed/trending"));
+    }
+    else if(homepage.includes("popular") && url.includes("search") && !url.includes("q=")){
+                window.location.replace (window.location.href.substring(0, window.location.href.indexOf('search')) + ("feed/trending"));
+    }
     if (url.includes("feed/trending") && !url.includes(trendingsettings)) {
         window.location.replace(url + ("?" + trendingsettings));
     }
