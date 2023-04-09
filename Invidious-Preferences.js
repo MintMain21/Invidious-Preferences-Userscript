@@ -86,13 +86,14 @@ const url = getCurrentURL();
         window.location.replace(url + ("?" + appearencesettings));
 
     }
+
             else if(!url.includes(appearencesettings)) {
                 window.location.replace(url + ("&" + appearencesettings));
-
+              
     }
 
     if (url.includes("q=") && !url.includes(searchsettings)) {
-        window.location.replace(url + ("&" + searchsettings));
+        window.location.replace(url + ("&" + appearencesettings + "&" + searchsettings));
     }
 
     if(homepage.includes("search") && url.includes("feed/trending")){
@@ -116,10 +117,10 @@ const url = getCurrentURL();
                 window.location.replace (window.location.href.substring(0, window.location.href.indexOf('search')) + ("feed/trending"));
     }
     if (url.includes("feed/trending") && !url.includes(trendingsettings)) {
-        window.location.replace(url + ("?" + trendingsettings));
+        window.location.replace(url + ("?" + appearencesettings + "&" + trendingsettings));
     }
     if (url.includes("v=") && !url.includes(videosettings)) {
-        window.location.replace(url + ("&" + videosettings));
+        window.location.replace(url + ("&" + appearencesettings + "&" + videosettings));
     }
 
 })();
