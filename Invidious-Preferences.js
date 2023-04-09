@@ -52,7 +52,6 @@
 // @grant        none
 // @license      MIT
 // @homepage     https://github.com/MintMain21/Invidious-URL-Parameters-Userscript
-// @run-at       document-start
 // ==/UserScript==
 /** This userscript is based on https://greasyfork.org/en/scripts/450983-genius-back-to-the-original-page-layout but rewritten to enforce video playback preferences as video quality, visibility of comments, etc, through URL parameters and without using browser cookies.
 For more information about Invidious URL parameters and the various options, see https://docs.invidious.io/url-parameters/
@@ -125,3 +124,17 @@ const url = getCurrentURL();
     }
 
 })();
+
+var InvidiousLinks = Array.from(document.links).filter(link => link.href.includes(window.location.hostname));
+    for (var i = 0; i < InvidiousLinks.length; i++) {
+        if(InvidiousLinks[i].href.includes("?")){
+            InvidiousLinks[i].href = InvidiousLinks[i].href + ("&" + appearencesettings)
+        }
+        else{
+            InvidiousLinks[i].href = InvidiousLinks[i].href + ("?" + appearencesettings)
+        }
+
+                if(InvidiousLinks[i].href.includes("v=")){
+            InvidiousLinks[i].href = InvidiousLinks[i].href + ("&" + videosettings)
+        }
+    }
