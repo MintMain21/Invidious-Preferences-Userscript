@@ -53,7 +53,7 @@
 // @license      MIT
 // @homepage     https://github.com/MintMain21/Invidious-URL-Parameters-Userscript
 // ==/UserScript==
-/** This userscript is based on https://greasyfork.org/en/scripts/450983-genius-back-to-the-original-page-layout but rewritten to enforce video playback preferences as video quality, visibility of comments, etc, through URL parameters and without using browser cookies.
+/** This userscript is written to enforce invidious preferences such as theme, language, video quality, visibility of comments, etc, through URL parameters and without using browser cookies.
 For more information about Invidious URL parameters and the various options, see https://docs.invidious.io/url-parameters/
 To edit the enforced URL parameters, change the setting strings below. Keep options in their appropriate catagories (URL Parameters affecting video playback should only be in videosettings, etc). You can keep a setting option blank if you would rather not append any URL parameters.
 */
@@ -62,7 +62,6 @@ let searchsettings = "region=JP"
 let videosettings = "related_videos=false&comments=false&quality=hd720&player_style=youtube&extend_desc=true"
 let trendingsettings = "type=Music"
 /**
-Anytime you load a video URL on your desired Invidious instance, this script will check the URL for the desired parameters, and apply them if not found.
 To edit the Invidious instances this script applies to, edit the domains above.
 You may also edit the Homepage by changing the variable below (options include "search", "popular", and "trending"). */
 let homepage = "search"
