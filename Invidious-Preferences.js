@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Invidious Preferences
 // @namespace    http://tampermonkey.net/
-// @version      1
+// @version      1.5
 // @description  Redirect Invidious Videos with URL Parameters
 // @author       MintMain21
 // @match        *://inv.odyssey346.dev/*
