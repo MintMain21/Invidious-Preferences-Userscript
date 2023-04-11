@@ -23,7 +23,7 @@
 // @match        *://invidious.sethforprivacy.com/*
 // @match        *://invidious.projectsegfau.lt/*
 // @match        *://yt.funami.tech/*
-// @match        *://invidious.lunar.icu/?*
+// @match        *://invidious.lunar.icu/*
 // @match        *://invidious.privacydev.net/*
 // @match        *://invidious.slipfox.xyz/*
 // @match        *://invidious.esmailelbob.xyz/*
