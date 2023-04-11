@@ -67,8 +67,10 @@ You may also edit the Homepage by changing the variable below (options include "
 let homepage = "search"
 /**
 It is recommended that you use this script in combination with https://github.com/dybdeskarphet/privacy-redirector and https://codeberg.org/mthsk/userscripts/src/branch/master/simple-sponsor-skipper
- */
 
+
+This script can also redirect Invidious Feeds to their YouTube equivelants so that URLs from RSS Feeds can be easily redirected to the most convenient instance. To disable this, set rssRedirect below to "false"*/
+let rssRedirect = "true"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -130,11 +132,17 @@ var InvidiousLinks = Array.from(document.links).filter(link => link.href.include
         if(InvidiousLinks[i].href.includes("?")){
             InvidiousLinks[i].href = InvidiousLinks[i].href + ("&" + appearencesettings)
         }
-        else{
+        else if (!InvidiousLinks[i].href.includes("feed/channel") && !InvidiousLinks[i].href.includes("feed/playlist")){
             InvidiousLinks[i].href = InvidiousLinks[i].href + ("?" + appearencesettings)
         }
 
                 if(InvidiousLinks[i].href.includes("v=")){
             InvidiousLinks[i].href = InvidiousLinks[i].href + ("&" + videosettings)
         }
+                         if(InvidiousLinks[i].href.includes("feed/channel") && rssRedirect.includes("true")){
+            InvidiousLinks[i].href = ("https://www.youtube.com/feeds/videos.xml?channel_id=" + InvidiousLinks[i].pathname.replace("/feed/channel/", ""))
+           }
+                  if(InvidiousLinks[i].href.includes("feed/playlist") && rssRedirect.includes("true")){
+            InvidiousLinks[i].href = ("https://www.youtube.com/feeds/videos.xml?playlist_id=" + InvidiousLinks[i].pathname.replace("/feed/playlist/", ""))
+           }
     }
