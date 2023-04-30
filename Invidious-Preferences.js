@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Invidious Preferences
 // @namespace    http://tampermonkey.net/
-// @version      1.5
+// @version      1.6
 // @description  Redirect Invidious Videos with URL Parameters
 // @author       MintMain21
 // @match        *://inv.odyssey346.dev/*
@@ -35,6 +35,10 @@
 // @match        *://invidious.privacydev.net/*
 // @match        *://invidious.vpsburti.com/*
 // @match        *://inv.zzls.xyz/*
+// @match        *://invidious.0011.lt/*
+// @match        *://ytb.trom.tf/*
+// @match        *://vid.priv.au/*
+// @match        *://invidious.fdn.fr/*
 // @match        *://c7hqkpkpemu6e7emz5b4vyz7idjgdvgaaa3dyimmeojqbgpea3xqjoid.onion/*
 // @match        *://w6ijuptxiku4xpnnaetxvnkc5vqcdu7mgns2u77qefoixi63vbvnpnqd.onion/*
 // @match        *://kbjggqkzv65ivcqj6bumvp337z6264huv5kpkwuv6gu5yjiskvan7fad.onion/*
@@ -129,17 +133,21 @@ const url = getCurrentURL();
 
 var InvidiousLinks = Array.from(document.links).filter(link => link.href.includes(window.location.hostname));
     for (var i = 0; i < InvidiousLinks.length; i++) {
-        if(InvidiousLinks[i].href.includes("?")){
+        if(InvidiousLinks[i].href.includes("?") && !InvidiousLinks[i].href.includes("t=")){
             InvidiousLinks[i].href = InvidiousLinks[i].href + ("&" + appearencesettings)
         }
-        else if (!InvidiousLinks[i].href.includes("feed/channel") && !InvidiousLinks[i].href.includes("feed/playlist")){
+        else if (!InvidiousLinks[i].href.includes("feed/channel") && !InvidiousLinks[i].href.includes("feed/playlist") && !InvidiousLinks[i].href.includes("t=")){
             InvidiousLinks[i].href = InvidiousLinks[i].href + ("?" + appearencesettings)
         }
 
-                if(InvidiousLinks[i].href.includes("v=")){
-            InvidiousLinks[i].href = InvidiousLinks[i].href + ("&" + videosettings)
+         if(InvidiousLinks[i].href.includes("v=") && InvidiousLinks[i].href.includes("t=")){
+            InvidiousLinks[i].href = InvidiousLinks[i].href.replace("t=", appearencesettings + "&" + videosettings + "&t=")
         }
-                         if(InvidiousLinks[i].href.includes("feed/channel") && rssRedirect.includes("true")){
+
+        else if (InvidiousLinks[i].href.includes("v=")){
+                 InvidiousLinks[i].href = InvidiousLinks[i].href + ("&" + videosettings)
+        }
+                   if(InvidiousLinks[i].href.includes("feed/channel") && rssRedirect.includes("true")){
             InvidiousLinks[i].href = ("https://www.youtube.com/feeds/videos.xml?channel_id=" + InvidiousLinks[i].pathname.replace("/feed/channel/", ""))
            }
                   if(InvidiousLinks[i].href.includes("feed/playlist") && rssRedirect.includes("true")){
