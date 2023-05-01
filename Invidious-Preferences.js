@@ -134,15 +134,15 @@ const url = getCurrentURL();
 var InvidiousLinks = Array.from(document.links).filter(link => link.href.includes(window.location.hostname));
     for (var i = 0; i < InvidiousLinks.length; i++) {
       
-        if(!InvidiousLinks[i].href.includes("watch") && !InvidiousLinks[i].href.includes("preferences") && !InvidiousLinks[i].href.includes("channel") && !InvidiousLinks[i].href.includes("search") && !InvidiousLinks[i].href.includes("feed") && homepage.includes("search")){
+        if(!InvidiousLinks[i].href.includes("watch") && !InvidiousLinks[i].href.includes("preferences") && !InvidiousLinks[i].href.includes("channel") && !InvidiousLinks[i].href.includes("search") && !InvidiousLinks[i].href.includes("feed") && !InvidiousLinks[i].href.includes("playlist") && homepage.includes("search")){
             InvidiousLinks[i].href = InvidiousLinks[i].href + ("search")
         }
 
-        else if(!InvidiousLinks[i].href.includes("watch") && !InvidiousLinks[i].href.includes("preferences") && !InvidiousLinks[i].href.includes("channel") && !InvidiousLinks[i].href.includes("search") && !InvidiousLinks[i].href.includes("feed") && homepage.includes("trending")){
+        else if(!InvidiousLinks[i].href.includes("watch") && !InvidiousLinks[i].href.includes("preferences") && !InvidiousLinks[i].href.includes("channel") && !InvidiousLinks[i].href.includes("search") && !InvidiousLinks[i].href.includes("feed") && !InvidiousLinks[i].href.includes("playlist") && homepage.includes("trending")){
             InvidiousLinks[i].href = InvidiousLinks[i].href + ("feed/trending")
         }
 
-        else if(!InvidiousLinks[i].href.includes("watch") && !InvidiousLinks[i].href.includes("preferences") && !InvidiousLinks[i].href.includes("channel") && !InvidiousLinks[i].href.includes("search") && !InvidiousLinks[i].href.includes("feed") && homepage.includes("popular")){
+        else if(!InvidiousLinks[i].href.includes("watch") && !InvidiousLinks[i].href.includes("preferences") && !InvidiousLinks[i].href.includes("channel") && !InvidiousLinks[i].href.includes("search") && !InvidiousLinks[i].href.includes("feed") && !InvidiousLinks[i].href.includes("playlist") && homepage.includes("popular")){
             InvidiousLinks[i].href = InvidiousLinks[i].href + ("feed/popular")
         }
 
