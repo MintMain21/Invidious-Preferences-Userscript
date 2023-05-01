@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Invidious Preferences
 // @namespace    http://tampermonkey.net/
-// @version      1.9
+// @version      2.0
 // @description  Redirect Invidious Videos with URL Parameters
 // @author       MintMain21
 // @match        *://inv.odyssey346.dev/*
@@ -152,8 +152,7 @@ var InvidiousLinks = Array.from(document.links).filter(link => link.href.include
         else if (!InvidiousLinks[i].href.includes("feed/channel") && !InvidiousLinks[i].href.includes("feed/playlist") && !InvidiousLinks[i].href.includes("v=")){
             InvidiousLinks[i].href = InvidiousLinks[i].href + ("?" + appearencesettings)
         }
-
-         if(InvidiousLinks[i].href.includes("v=") && InvidiousLinks[i].href.includes("t=")){
+         if(InvidiousLinks[i].href.includes("v=") && InvidiousLinks[i].href.includes("&t=")){
             InvidiousLinks[i].href = InvidiousLinks[i].href.replace("t=", appearencesettings + "&" + videosettings + "&t=")
         }
 
