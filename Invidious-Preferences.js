@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Invidious Preferences
 // @namespace    http://tampermonkey.net/
-// @version      1.6
+// @version      1.7
 // @description  Redirect Invidious Videos with URL Parameters
 // @author       MintMain21
 // @match        *://inv.odyssey346.dev/*
@@ -133,6 +133,19 @@ const url = getCurrentURL();
 
 var InvidiousLinks = Array.from(document.links).filter(link => link.href.includes(window.location.hostname));
     for (var i = 0; i < InvidiousLinks.length; i++) {
+      
+        if(!InvidiousLinks[i].href.includes("watch") && !InvidiousLinks[i].href.includes("preferences") && !InvidiousLinks[i].href.includes("channel") && !InvidiousLinks[i].href.includes("search") && !InvidiousLinks[i].href.includes("feed") && homepage.includes("search")){
+            InvidiousLinks[i].href = InvidiousLinks[i].href + ("search")
+        }
+
+        else if(!InvidiousLinks[i].href.includes("watch") && !InvidiousLinks[i].href.includes("preferences") && !InvidiousLinks[i].href.includes("channel") && !InvidiousLinks[i].href.includes("search") && !InvidiousLinks[i].href.includes("feed") && homepage.includes("trending")){
+            InvidiousLinks[i].href = InvidiousLinks[i].href + ("feed/trending")
+        }
+
+        else if(!InvidiousLinks[i].href.includes("watch") && !InvidiousLinks[i].href.includes("preferences") && !InvidiousLinks[i].href.includes("channel") && !InvidiousLinks[i].href.includes("search") && !InvidiousLinks[i].href.includes("feed") && homepage.includes("popular")){
+            InvidiousLinks[i].href = InvidiousLinks[i].href + ("feed/popular")
+        }
+
         if(InvidiousLinks[i].href.includes("?") && !InvidiousLinks[i].href.includes("t=")){
             InvidiousLinks[i].href = InvidiousLinks[i].href + ("&" + appearencesettings)
         }
