@@ -63,7 +63,7 @@ To edit the enforced URL parameters, change the setting strings below. Keep opti
 */
 let appearencesettings = "dark_mode=auto&hl=en-US"
 let searchsettings = "region=JP"
-let videosettings = "related_videos=false&comments=false&quality=hd720&player_style=youtube&extend_desc=true"
+let videosettings = "related_videos=false&comments=false&quality=hd720&player_style=invidious&extend_desc=true"
 let trendingsettings = "type=Music"
 /**
 To edit the Invidious instances this script applies to, edit the domains above.
