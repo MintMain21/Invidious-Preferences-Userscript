@@ -11,4 +11,6 @@ To install it, go [here](https://greasyfork.org/en/scripts/463714-invidious-pref
 
 To change the settings enforced, all you need to do is change the setting strings. For more information about URL Parameters, see [here](https://docs.invidious.io/url-parameters/)
 
-It is recommended that you use this script in combination with https://github.com/dybdeskarphet/privacy-redirector and https://codeberg.org/mthsk/userscripts/src/branch/master/simple-sponsor-skipper
+It is recommended that you use this script in combination with either the following scripts ([Privacy Redirector](https://github.com/dybdeskarphet/privacy-redirector) and [Simple Sponsor Skipper](https://codeberg.org/mthsk/userscripts/src/branch/master/simple-sponsor-skipper)) or their browser extension alternatives ([LibRedirect](https://libredirect.github.io/) and [SponsorBlock](https://sponsor.ajay.app/)).
+
+If anyone would like to port this feature either to it's own dedicated browser extension or as a feature for a pre-existing extension, it's under the MIT licence so you shoul be free to do so. Feel free to credit me and notify me so that I can see it in action.
